@@ -1,8 +1,11 @@
 <?php
 
 include '../../config/connection.php';
+?>
 
-$id = isset ($_GET['id']) ? $_GET['id'] : exit();
+<?php
+
+$id = isset($_GET['id']) ? $_GET['id'] : exit();
 
 if (empty($id)){
     echo "É necessario informar um id!";

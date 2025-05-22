@@ -17,6 +17,6 @@ foreach ($usuarios as $index => $user) {
 ?>
 <p><strong>Nome: </strong><?php echo $user["username"]?></p>
 <a href="http://localhost/PWII-FATECANOS/PDO_CRUD-24-04/public/usuario/delete.php?id=<?php echo $user['id'];?>" >Remover</a>
-<a href="http://localhost/PWII-FATECANOS/PDO_CRUD-24-04/public/usuario/update.php">Editar</a>
+<a href="http://localhost/PWII-FATECANOS/PDO_CRUD-24-04/public/usuario/update.php?id=<?php echo $user['id'];?>">Editar</a>
 <hr>
 <?php } ?>
