@@ -1,5 +1,7 @@
-<?php
 
+<?php
+include '../../includes/header.php'; 
+include '../../includes/menu.php'; 
 include '../../config/connection.php';
 
 
@@ -20,3 +22,5 @@ foreach ($usuarios as $index => $user) {
 <a href="http://localhost/PWII-FATECANOS/PDO_CRUD-24-04/public/usuario/update.php?id=<?php echo $user['id'];?>">Editar</a>
 <hr>
 <?php } ?>
+
+<?php include '../../includes/footer.php'; ?>

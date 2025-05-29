@@ -1,5 +1,6 @@
 <?php
-
+include '../../includes/header.php'; 
+include '../../includes/menu.php'; 
 include '../../config/connection.php';
 ?>
 
@@ -20,3 +21,4 @@ header("Location: read.php")
 
 ?>
 
+<?php include '../../includes/footer.php'; ?>
