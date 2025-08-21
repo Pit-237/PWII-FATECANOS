@@ -12,15 +12,39 @@
             $this->data = $data;
         }
 
-        public function inserir(){}
+        public function inserir(){
+            $stmt = $pdo->prepare("INSERT INTO avaliacao (nota, comentario, data) VALUES (:nota, :comentario, :data)");
 
-        public function buscar($id){}
+            $stmt->bindParam(':nota', $nota);
+            $stmt->bindParam(':comentario', $comentario);
+            $stmt->bindParam(':data', $data);
+            $stmt->execute();
+        }
 
-        public function buscarTodos(){}
+        public function buscar($id){
+            $stmt = $pdo->query("SELECT * FROM avaliacao WHERE id = $id");
+	        $avaliacoes = $stmt->fetchAll();
+        }
 
-        public function atualizar($id){}
+        public function buscarTodos(){
+            $stmt = $pdo->query("SELECT * FROM avaliacao");
+            $avaliacoes = $stmt->fetchAll();
+        }
 
-        public function deletar($id){}
+        public function atualizar($id){
+            $stmt = $pdo->prepare("UPDATE pessoas SET nota = :nota, comentario = :comentario, data = :data WHERE id = :id");
+            $stmt->bindParam(':nota', $nota);
+            $stmt->bindParam(':comentario', $comentario);
+            $stmt->bindParam(':data', $data);
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+        }
+
+        public function deletar($id){
+            $stmt = $pdo->prepare('DELETE FROM avaliacao WHERE id = :id');
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+        }
     }
 
 ?>
