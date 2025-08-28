@@ -1,8 +1,8 @@
-<?php include 'header.php'; ?>
-<?php include 'usuario.php'; ?>
+<?php include './header.php'?>
+<?php include './autor.php'?>
 
 
-    <div class="container-fluid">
+<div class="container-fluid">
         <div class="row d-flex justify-content-center">
             <div class="col-sm-12 col-md-8 col-xl-6 col-xxl-4">
 
@@ -19,7 +19,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="email" class="label-control">E-mail</label>
+                                <label for="email" class="label-control">Biografia</label>
                                 <input type="text" name="email" id="email" class="form-control">
                             </div>
 
@@ -47,6 +47,7 @@
         </div>
     </div>
 
+    
     <?php
 
     if (!isset($_POST['nome']))
@@ -67,4 +68,5 @@
 
    
 
-<?php include 'footer.php'; ?>
+
+<?php include './footer.php'?>

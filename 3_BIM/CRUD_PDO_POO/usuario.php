@@ -8,20 +8,32 @@
         private $tipo; //admin || comum
 
         public function __construct($nome, $email, $senha, $tipo) {
+           
+
             $this->nome = $nome;
             $this->email = $email;
             $this->senha = $senha;
             $this->tipo = $tipo;
         }
 
-        public function inserir($nome, $email, $senha, $tipo){
+        public function inserir($nome, $email, $senha, $confirmar_senha, $tipo){
+            global $pdo;
+
+            if (empty($nome) || empty($email)|| empty($senha) || empty($confirmar_senha) || empty($tipo)){
+                return"favor preencher todos os dados";
+            }
+            if ($senha != $confirmar_senha){
+                return "As senhas não conferem";
+            }
             $stmt = $pdo->prepare("INSERT INTO usuario (nome, email, senha, tipo) VALUES (:nome, :email, :senha, :tipo)");
             $tipo = 'admin';
             $stmt->bindParam(':nome', $nome);
             $stmt->bindParam(':email', $email);
             $stmt->bindParam(':senha', $senha);
             $stmt->bindParam(':tipo', $tipo);
-            $stmt->execute();}
+            $stmt->execute();
+        return "Usuario cadastrado com sucesso";
+    }
 
         public function buscar($id){
             $stmt = $pdo->query("SELECT * FROM usuario WHERE id = $id");
